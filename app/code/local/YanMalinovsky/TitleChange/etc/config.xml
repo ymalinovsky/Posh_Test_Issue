@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+* TitleChange related module
+*
+* @category    YanMalinovsky
+* @package     YanMalinovsky_TitleChange
+* @copyright   Copyright (c) 2015 <yan.malinovsky@gmail.com>
+* @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <YanMalinovsky_TitleChange>
+            <version>0.1.0</version>
+        </YanMalinovsky_TitleChange>
+    </modules>
+    <global>
+        <models>
+            <yanmalinovsky_titlechange>
+                <class>YanMalinovsky_TitleChange_Model</class>
+            </yanmalinovsky_titlechange>
+        </models>
+        <resources>
+            <yanmalinovsky_titlechange_setup>
+                <setup>
+                    <module>YanMalinovsky_TitleChange</module>
+                </setup>
+            </yanmalinovsky_titlechange_setup>
+        </resources>
+        <options_container>
+            <gender>
+                <option1 translate="label">
+                    <value>men</value>
+                    <label>Men</label>
+                </option1>
+                <option2 translate="label">
+                    <value>women</value>
+                    <label>Women</label>
+                </option2>
+                <option3 translate="label">
+                    <value>children</value>
+                    <label>Children</label>
+                </option3>
+            </gender>
+        </options_container>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <yanmalinovsky_titlechange>
+                        <class>YanMalinovsky_TitleChange_Model_Observer</class>
+                        <method>setTitle</method>
+                    </yanmalinovsky_titlechange>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+        </events>
+    </frontend>
+</config>
